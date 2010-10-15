@@ -10,7 +10,11 @@ class UsersController < ApplicationController
     else
       @user = User.find_by_name(params[:name].downcase)
     end
-    @title = @user.name
+    if (@user.nil?)
+      redirect_to "/"
+    else
+      @title = @user.name
+    end
   end
 
   def create
