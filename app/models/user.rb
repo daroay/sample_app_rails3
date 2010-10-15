@@ -24,8 +24,6 @@ class User < ActiveRecord::Base
                    :exclusion  => { :in => %w(about contact help signup), 
                                    :message => "is Reserved"}
 
-  puts :name.upcase
-
   validates :email, :presence   => true,
                     :format     => { :with => email_regex },
                     :uniqueness => { :case_sensitive => false }
