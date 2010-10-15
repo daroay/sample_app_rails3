@@ -9,10 +9,10 @@ describe "Users" do
       it "should make a new user" do
         lambda do
           visit signup_path
-          fill_in :user_name,         :with => "Example"
-          fill_in :user_email,        :with => "user@example.com"
-          fill_in "Password",     :with => "foobar"
-          fill_in "Confirmation", :with => "foobar"
+          fill_in "User Name",        :with => "Example"
+          fill_in "Email",            :with => "user@example.com"
+          fill_in "Password",         :with => "foobar"
+          fill_in "Confirmation",     :with => "foobar"
           click_button
           response.should have_selector("div.flash.success",
                                         :content => "Welcome")
@@ -26,7 +26,7 @@ describe "Users" do
       it "should not make a new user" do
         lambda do
           visit signup_path
-          fill_in "Name",         :with => ""
+          fill_in "User Name",    :with => ""
           fill_in "Email",        :with => ""
           fill_in "Password",     :with => ""
           fill_in "Confirmation", :with => ""

@@ -17,12 +17,12 @@
   <div class="field">
     <%= f.label :password %>
     <p class="instruction">Minimum 6 letters</p>
-    <%= f.password_field :password, :value => "" %>
+    <%= f.password_field :password %>
   </div>
   <div class="field">
     <%= f.label :password_confirmation, "Confirmation" %>
     <p class="instruction">Repeat password</p>
-    <%= f.password_field :password_confirmation, :value=> ""%>
+    <%= f.password_field :password_confirmation%>
   </div>
   <div class="actions">
     <%= f.submit "Sign up"%><br />
