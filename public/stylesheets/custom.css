@@ -140,8 +140,8 @@ div.field, div.actions {
   margin-bottom: 15px;
 }
 
-.instruction{
-  color: #AAA;
+p.instruction{
+  color: #777;
   margin-bottom: -2px;
 }
 

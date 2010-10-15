@@ -3,8 +3,10 @@
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages'%>
   <div class="field">
-    <%= f.label :name %>
-    <p class="instruction">Just letters without symbols</p>
+    <%= f.label :name, "User Name" %>
+    <p class="instruction">
+      <span>Just letters without symbols or spaces<span>
+    </p>
     <%= f.text_field :name %>
   </div>
   <div class="field">
