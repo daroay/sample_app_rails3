@@ -22,9 +22,11 @@ class UsersController < ApplicationController
     @attr = @attr.merge(:name => @attr[:name].downcase)
     @user = User.new(@attr)
     if @user.save
+			sign_in @user
       flash[:success] = "Welcome to the Sample App!"
       redirect_to "/#{@user.name}"
       #redirect_to users_path(@user)
+
     else
       @title = "Sign up"
       @user.password = ""
