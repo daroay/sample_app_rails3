@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  name_regex = /\A[A-Za-z]+\z/i
+  name_regex = /\A[A-Za-z._]+\z/i
 
   validates :name, :presence   => true,
                    :length     => { :maximum => 50 },
@@ -45,10 +45,10 @@ class User < ActiveRecord::Base
   end
 
 
-	def self.authenticate_with_salt(id, cookie_salt)
-		user = find_by_id(id)
-		(user && user.salt == cookie_salt) ? user : nil
-	end
+  def self.authenticate_with_salt(id, cookie_salt)
+    user = find_by_id(id)
+    (user && user.salt == cookie_salt) ? user : nil
+  end
 
   private
 

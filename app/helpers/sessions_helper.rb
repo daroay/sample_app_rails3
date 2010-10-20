@@ -19,6 +19,7 @@ module SessionsHelper
 
   def sign_out
     current_user = nil
+    session[:remember_token] = [nil, nil]
   end
 
   private
@@ -31,6 +32,26 @@ module SessionsHelper
     session[:remember_token] || [nil, nil]
   end
 
+  def current_user?(user)
+    user == current_user
+  end
 
+  def deny_access
+    store_location
+    redirect_to signin_path, :notice => "Please sign in to access this page"
+  end
+ 
+  def store_location
+    session[:retur_to] = request.fullpath
+  end
+
+  def redirect_back_or(default)
+    redirect_to(session[:retur_to] || default)
+    clear_retur_to
+  end
+
+  def clear_retur_to
+    session[:retur_to] = nil
+  end
 
 end
